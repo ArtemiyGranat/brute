@@ -252,6 +252,7 @@ main (int argc, char *argv[])
     case RM_REACTOR_CLIENT:
       break;
     case RM_REACTOR_SERVER:
+      is_found = run_reactor_server (&task, &config);
       break;
     }
 
