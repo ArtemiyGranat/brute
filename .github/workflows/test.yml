@@ -19,6 +19,8 @@ jobs:
         run: pip install pytest hypothesis
       - name: update ubuntu packages
         run: sudo apt-get update -y
+      - name: install libevent
+        run: sudo apt-get install libevent-dev
       - name: install valgrind and netcat
         run: sudo apt-get install valgrind netcat -y
       - name: make dev
@@ -39,6 +41,8 @@ jobs:
           python-version: '3.12'
       - name: install pytest and hypothesis
         run: pip install pytest hypothesis
+      - name: install libevent and pkg-config to find libevent
+        run: brew install pkg-config libevent
       - name: make dev
         run: make dev
       - name: make check (dev)

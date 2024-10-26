@@ -1,16 +1,12 @@
 #include "server_common.h"
 
-#include "brute.h"
 #include "common.h"
 #include "log.h"
 #include "multi.h"
-#include "thread_pool.h"
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -185,7 +181,9 @@ serv_signal_if_found (mt_context_t *ctx)
       if (ctx->passwords_remaining == 0)
         trace ("No passwords are left, signaling now");
       else
-        trace ("Password is found, signaling now");
+        {
+          trace ("Password is found, signaling now");
+        }
 
       if (pthread_cond_signal (&ctx->cond_sem) != 0)
         {
