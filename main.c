@@ -7,6 +7,7 @@
 #include "log.h"
 #include "multi.h"
 #include "queue.h"
+#include "reactor_server.h"
 #include "single.h"
 #include "sync_client.h"
 #include "sync_server.h"
@@ -171,6 +172,12 @@ parse_params (config_t *config, int argc, char *argv[])
         case 'w':
           config->run_mode = RM_ASYNC_SERVER;
           break;
+        case 'x':
+          config->run_mode = RM_REACTOR_CLIENT;
+          break;
+        case 'R':
+          config->run_mode = RM_REACTOR_SERVER;
+          break;
         case 'i':
           config->brute_mode = BM_ITER;
           break;
@@ -241,6 +248,10 @@ main (int argc, char *argv[])
       break;
     case RM_LOAD_CLIENT:
       spawn_clients (&config, NULL);
+      break;
+    case RM_REACTOR_CLIENT:
+      break;
+    case RM_REACTOR_SERVER:
       break;
     }
 

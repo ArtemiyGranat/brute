@@ -1,5 +1,9 @@
 # brute
 
+## Dependencies
+
+* `libevent`
+
 ## Usage
 
 ```
