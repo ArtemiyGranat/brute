@@ -7,6 +7,7 @@ else
 	CFLAGS+=-pthread
 endif
 CFLAGS+=-I./crypt
+LIBS+=-levent
 LIBS+=crypt/libcrypt.a
 
 OBJ_DIR=obj
